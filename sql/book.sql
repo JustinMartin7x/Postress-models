@@ -4,3 +4,15 @@ CREATE TABLE books (
     author TEXT NOT NULL,
     genre TEXT NOT NULL
 );
+CREATE TABLE character (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    race TEXT NOT NULL,
+    gender TEXT NOT NULL
+);
+CREATE TABLE character (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    books TEXT NOT NULL,
+    genre TEXT NOT NULL
+);
