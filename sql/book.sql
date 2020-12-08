@@ -10,9 +10,21 @@ CREATE TABLE character (
     race TEXT NOT NULL,
     gender TEXT NOT NULL
 );
-CREATE TABLE character (
+CREATE TABLE authors (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name TEXT NOT NULL,
     books TEXT NOT NULL,
     genre TEXT NOT NULL
 );
+CREATE TABLE series (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    genre TEXT NOT NULL,
+    number_of_books_in_series TEXT NOT NULL
+)
+CREATE TABLE fans (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    crazy_level TEXT NOT NULL,
+    favorite_author TEXT NOT NULL
+)

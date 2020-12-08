@@ -3,6 +3,8 @@ const express = require('express');
 const Book = require('./lib/models/Books');
 const Characters = require('./lib/models/Characters');
 const Authors = require('./lib/models/Authors');
+const Series = require('./lib/models/Series');
+const Fans = require('./lib/models/Fans');
 const app = express();
 app.use(express.json());
 
@@ -51,7 +53,7 @@ app.delete('/characters', (req, res) => {
         .send(character => res.send(character));
 });
 //Authors
-app.post('/characters', (req, res) => {
+app.post('/authors', (req, res) => {
     Authors
         .add(req.body)
         .then(author => res.send(author));
@@ -71,7 +73,48 @@ app.delete('/authors', (req, res) => {
         .delete(req.body.id)
         .send(author => res.send(author));
 });
-
+// Series
+app.post('/series', (req, res) => {
+    Series
+        .add(req.body)
+        .then(series => res.send(series));
+});
+app.get('/series', (req, res) => {
+    Series
+        .read(req.body.id)
+        .then(series => res.send(series));
+});
+app.post('/series', (req, res) => {
+    Series
+        .update(req.body.id)
+        .send(series => res.send(series));
+});
+app.delete('/series', (req, res) => {
+    Series
+        .delete(req.body.id)
+        .send(series => res.send(series));
+});
+// Fans
+app.post('/fans', (req, res) => {
+    Fans
+        .add(req.body)
+        .then(fan => res.send(fan));
+});
+app.get('/fans', (req, res) => {
+    Fans
+        .read(req.body.id)
+        .then(fan => res.send(fan));
+});
+app.post('/fans', (req, res) => {
+    Fans
+        .update(req.body.id)
+        .send(fan => res.send(fan));
+});
+app.delete('/fans', (req, res) => {
+    Fans
+        .delete(req.body.id)
+        .send(fan => res.send(fan));
+});
 
 
 
