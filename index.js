@@ -119,5 +119,5 @@ app.delete('/fans', (req, res) => {
 
 
 app.listen('3000', () => {
-    console.log('im listening');
+    console.log('im listening on 3000');
 });
